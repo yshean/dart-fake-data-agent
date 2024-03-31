@@ -14,8 +14,30 @@
   "contributes": {
     "commands": [
       {
-        "command": "dart-fake-data-agent.helloWorld",
-        "title": "Hello World"
+        "command": "dart-fake-data-agent.generateDataObject",
+        "title": "Dart Fake Data Agent: Generate a fake data object"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "Dart Fake Data Agent: Google AI",
+        "properties": {
+          "google.ai.apiKey": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "markdownDescription": "Enter your [API Key](https://ai.google.dev/tutorials/setup) for Google AI."
+          },
+          "google.ai.model": {
+            "type": [
+              "string"
+            ],
+            "default": "gemini-pro",
+            "markdownDescription": "Provide the name of the Google AI model you want to use. Choose from the [base models](https://ai.google.dev/models)."
+          }
+        }
       }
     ]
   },
@@ -37,5 +59,8 @@
     "typescript": "^5.3.3",
     "@vscode/test-cli": "^0.0.8",
     "@vscode/test-electron": "^2.3.9"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.1.3"
   }
 }

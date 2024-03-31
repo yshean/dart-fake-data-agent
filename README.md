@@ -1,71 +1,107 @@
-# dart-fake-data-agent README
+# Dart Fake Data Agent
 
-This is the README for your extension "dart-fake-data-agent". After writing up a brief description, we recommend including the following sections.
+Dart Fake Data Agent is an AI-powered code assistance tool, built as an extension
+for Microsoft Visual Studio Code (VS Code). It uses the Google Gemini API to help you
+generate fake data objects of your Dart class, which contains matching properties to
+your custom Dart data class.
 
-## Features
+This project is a customisation based on the tutorial
+[Build an AI Flutter code generator with Gemini](https://ai.google.dev/examples/flutter-theme-agent).
+Huge thanks to Google's devrel team for making the tutorial.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## Project setup
 
-For example if there is an image subfolder under your extension project workspace:
+This project is not published because it uses a private Gemini API key which subjects to usage quota.
+You need to follow the steps to set up the extension in your local development environment.
+The prerequisites include installing several dependencies, and obtaining the Google Gemini API key.
+You can obtain the key from the [Google Gemini API](https://ai.google.dev/tutorials/setup) page.
 
-\!\[feature X\]\(images/feature-x.png\)
+### Install the prerequisites
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+The Dart Fake Data Agent project runs as an extension of Microsoft Visual Studio Code, and uses Node.js
+and npm to manage packages and run the application. The following installation instructions are for a
+Unix environment.
 
-## Requirements
+To install the required software:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1.  Install [Visual Studio Code](https://code.visualstudio.com/download) for your platform.
+1.  Install `node` and `npm` by following the [installation instructions](https://nodejs.org/) for your platform.
 
-## Extension Settings
+### Clone and configure the project
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Download the project code and use the `npm` installation command to download the required dependencies
+and configure the project. You need [git](https://git-scm.com/) source control software to retrieve the project
+source code.
+To download and configure the project code:
 
-For example:
+1. Clone the git repository using the following command.\
+   `git clone https://github.com/yshean/dart-fake-data-agent`
+2. Navigate to the project root directory.\
+   `cd dart-fake-data-agent`
+3. Run the install command to download dependencies and configure the project:\
+   `npm install`
 
-This extension contributes the following settings:
+### Configure and test the extension
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+You should now be able to test your installation by running Dart Fake Data Agent
+as a development extension in VS Code on your device. The test opens a separate
+VS Code **Extension Development Host** window where the new extension is
+available. In this new window, you configure the API Key the extension uses to
+access the Google Gemini API.
 
-## Known Issues
+Caution: Treat your API Key like a password and protect it appropriately.
+For some general best practices on key security, review this
+[support article](https://support.google.com/googleapi/answer/6310037).
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+To configure and test your setup:
 
-## Release Notes
+1.  Start the VS Code application.
+1.  In VS Code, create a new window by selecting **File > New Window**.
+1.  Open the Flutter Theme Agent project by selecting **File > Open Folder**,
+    and selecting the `dart-fake-data-agent/` folder.
+1.  In VS Code, open the `dart-fake-data-agent/package.json` file.
+1.  Run the extension in debug mode by selecting **Run > Start Debugging**.
+    This step opens a separate VS Code **Extension Development Host** window.
+1.  Open the VS Code settings by selecting **Code > Settings > Settings**.
+1.  Get a
+    [Google Gemini API Key](https://developers.generativeai.google/tutorials/setup)
+    from the Generative AI Developer site, and copy the key string.
+1.  Set the API key as a configuration setting. In **Search Settings**
+    field, type `dart fake data`, select the **User** tab, and in the **Google >
+    Gemini: Api Key** setting, click the **Edit in settings.json** link, and
+    add your Gemini API key:
+      `"google.ai.apiKey": "your-api-key-here"`
+1.  Save the changes to the `settings.json` file and close the settings tabs.
 
-Users appreciate release notes as you update your extension.
+**Caution:** Treat your API Key like a password and protect it appropriately. Don't
+embed your key in publicly published code.
 
-### 1.0.0
+To test the extension commands:
 
-Initial release of ...
+1.  In the VS Code **Extension Development Host** window, open a Flutter project.
+2.  In your code, highlight the class you want to generate fake data for. For example,
+`// 5 fake data objects
+class Pet {
+  const Pet({
+    required this.id,
+    required this.owner,
+    required this.birthday,
+    required this.location,
+    required this.remarks,
+  });
 
-### 1.0.1
+  final int id;
+  final String owner;
+  final DateTime birthday;
+  final String? location;
+  final String? remarks;
+}`.
+3.  Open the command palette by selecting **View > Command Palette**.
+4.  In the Command Palette, type `Dart Fake Data Agent` and select the command.
 
-Fixed issue #.
+## Resources
 
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+- Project code tutorial:
+[Build an AI Flutter code generator with Gemini](https://ai.google.dev/examples/flutter-theme-agent) tutorial.
 
 **Enjoy!**
