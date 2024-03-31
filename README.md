@@ -97,7 +97,8 @@ class Pet {
   final String? location;
   final String? remarks;
 }
-```.
+```
+.
 3.  Open the command palette by selecting **View > Command Palette**.
 4.  In the Command Palette, type `Dart Fake Data Agent` and select the command.
 
