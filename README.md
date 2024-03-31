@@ -80,7 +80,8 @@ To test the extension commands:
 
 1.  In the VS Code **Extension Development Host** window, open a Flutter project.
 2.  In your code, highlight the class you want to generate fake data for. For example,
-`// 5 fake data objects
+```dart
+// 5 fake data objects
 class Pet {
   const Pet({
     required this.id,
@@ -95,7 +96,8 @@ class Pet {
   final DateTime birthday;
   final String? location;
   final String? remarks;
-}`.
+}
+```.
 3.  Open the command palette by selecting **View > Command Palette**.
 4.  In the Command Palette, type `Dart Fake Data Agent` and select the command.
 
